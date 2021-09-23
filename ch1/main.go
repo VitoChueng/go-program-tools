@@ -1,13 +1,34 @@
 package main
 
 import (
+	"errors"
 	"flag"
+	"fmt"
 	"log"
 )
 
 func main(){
-	flagCli()
+	var vito Vito
+	flag.Var(&vito,"name","help info")
+	flag.Parse()
+	log.Printf("name:%s",vito)
 }
+
+type Vito string
+
+func (v *Vito) String()string{
+	return fmt.Sprint(*v)
+}
+
+func (v *Vito) Set(value string)error{
+	if len(*v) > 0{
+		return errors.New("hello,new flag")
+	}
+	*v = Vito("hello friend: "+value)
+	return nil
+}
+
+
 
 func flagVar(){
 	var name string
