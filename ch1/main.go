@@ -8,10 +8,6 @@ import (
 )
 
 func main(){
-	var vito Vito
-	flag.Var(&vito,"name","help info")
-	flag.Parse()
-	log.Printf("name:%s",vito)
 }
 
 type Vito string
