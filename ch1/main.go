@@ -54,3 +54,5 @@ func flagCli(){
 	}
 	log.Printf("name %s",name)
 }
+
+
